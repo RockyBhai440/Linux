@@ -1,0 +1,34 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{tikz, pgfplots, pgfplotstable}
+\pgfplotsset{compat=newest}
+
+\title{Bar Diagram}
+\author{Pranto}
+\date{\today}
+
+\begin{document}
+\maketitle
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \pgfplotstableread{Data.txt}\fileData
+            \begin{axis}[
+                ybar, 
+                % width = 0.8\textwidth,
+                % height = 8cm,
+                % bar width = 1cm,    
+                xlabel = {Name},
+                ylabel = {Weight},
+                xtick = data,
+                xticklabels from table = {\fileData}{Name},
+                % yticklabels from table = {\fileData}{Weight},
+                nodes near coords,
+                % nodes near coords align = {horizontal},
+                ]
+                \addplot table [x expr=\coordindex, y=Weight, col sep=space]{\fileData};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Bar Diagram From Data}
+        \label{fig:bar_diagram}
+    \end{figure}
+\end{document}

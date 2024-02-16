@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{pgfplots}
+
+\begin{document}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        xbar,
+        xlabel={Revenue (\$m)},
+        title={Taylor Swift concert break the revenue records},
+        ytick=data,
+        symbolic y coords={Guns N' Roses,Drake,U2,Paul McCarthy,Bruno Mars,Celine Dion,Beyonce,Ed Sheeran,Rolling Stones,Taylor Swift},
+        % nodes near coords,
+        % nodes near coords align={horizontal},
+        bar width=0.4cm, % Adjust the width of the bars
+        ]
+        \addplot[red,fill=red] table[col sep=comma, x index=0, y index=1] {BarfromGc1data.csv}; 
+    \end{axis}
+\end{tikzpicture}
+\caption{Average gross revenue per live concert (\$m), 2018}
+\end{figure}
+
+\end{document}

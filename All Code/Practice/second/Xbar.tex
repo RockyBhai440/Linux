@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{tikz, pgfplots, pgfplotstable}
+\pgfplotsset{compat=newest}
+
+\title{Trending graph}
+\author{Pranto}
+\date{\today}
+
+\begin{document}
+\maketitle
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}
+                \pgfplotstableread[col sep=comma]{Data.csv}\datatable
+                \begin{axis}[
+                    xbar,
+                    xmin = 0,
+                    ylabel = {Age},
+                    xlabel = {Height},
+                    ytick = data,
+                    yticklabels from table = {\datatable}{age},
+                    % xtick = data,
+                    % xticklabels from table = {\datatable}{height},
+                    nodes near coords,
+                    % nodes near coords align = {horizontal},
+                ]
+                    \addplot table [x=age, y expr=\coordindex, col sep=comma]{Data.csv};
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+\end{document}
