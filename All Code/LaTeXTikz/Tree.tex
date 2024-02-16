@@ -1,0 +1,28 @@
+\documentclass{article}
+\title{Tree}
+\author{Pranto}
+\date{\today}
+\usepackage{tikz}
+\begin{document}
+\maketitle
+\section{Introduction}
+    Lets draw a normal tree With Root, Child and GrandChild.
+\begin{center}
+\begin{tikzpicture}[
+    level distance = 3cm,
+    level 1/.style = {sibling distance = 3cm},
+    level 2/.style = {sibling distance = 3cm},
+    level 3/.style = {sibling distance = 3cm}
+]
+    % Nodes
+    \node {Root}
+    child {node {Child 1}}
+    child {node {Child 2}
+        child {node {Grandchild 2.1}}
+        child {node {Grandchild 2.2}}
+    }
+    child {node {Child 3}};
+
+\end{tikzpicture}
+\end{center}
+\end{document}
