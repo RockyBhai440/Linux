@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage [utf8] {inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.18, width = 10cm}
+
+\title{Graph}
+\author{Pranto}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{tikzpicture}
+    \begin{axis}
+        \addplot+[
+            only marks,
+            scatter, 
+            mark size = 2.9pt]
+        table[meta = Y]
+        {Data.txt};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

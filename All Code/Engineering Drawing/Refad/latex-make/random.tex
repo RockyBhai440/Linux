@@ -1,0 +1,29 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz, pgfplots, pgfplotstable}
+\usetikzlibrary{positioning}
+\pgfplotsset{compat=1.18}
+
+
+
+\begin{document}
+	\section{Weight graph}
+	\begin{tikzpicture}
+		\pgfplotstableread[col sep=comma]{userData.csv}\fileData
+		\begin{axis}[
+			xbar,
+			width=12cm, height=10cm,
+			bar width=1cm,
+			ylabel={Name Of The Person},
+			xlabel={Weight Count},
+			ytick=data,
+			yticklabels from table={\fileData}{Name},
+			%yticklabel style={rotate=0, anchor=east},
+			nodes near coords,
+			nodes near coords align={horizontal},
+			]
+		\addplot table [y expr=\coordindex, x=Weight]{\fileData};
+		\end{axis}
+	\end{tikzpicture}
+\end{document}

@@ -1,0 +1,16 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\title{Adnan}
+\author{Pranto}
+\date{\today}
+
+\begin{document}
+\maketitle
+    \begin{tikzpicture}
+        \begin{axis}[xlabel = {X-axis label}, ylabel = {Y axis label}, title = {Line Graph Example}, grid = major,]
+            \addplot file {data};
+        \end{axis}
+    \end{tikzpicture}
+\end{document}

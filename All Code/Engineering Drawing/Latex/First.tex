@@ -1,0 +1,45 @@
+% This is my First Code.
+\documentclass{article}
+\usepackage{graphicx}
+\title{Demo LaTeX document}
+\author{Pranto}
+\date{\today}
+
+\begin{document}
+
+    \maketitle
+
+    \section{Introduction}
+    This is a simple LaTeX document. Here's a mathematical expression: $a^2 + b^2 = c^2$. 
+
+    \section{Figure and Tables}
+    \subsection{Figure}
+    Let's include a figure. The following code incudes an emage named "example-image" with a width of 0.5 times the text width.
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.5\textwidth]{example-image}
+        \caption{An example figure}
+        \label{fig:example}
+    \end{figure}
+    Referencing the figure: Figure \ref{fig:example}.
+    
+    \subsection{Table}
+    Now, let's create a simple table.
+
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{\textit{Header 1}} & \textbf{Header 2} \\
+            \hline  
+            Row 1 & Data 1 \\
+            Row 2 & Data @ \\
+            \hline          
+        \end{tabular}
+        \caption{An example table}
+        \label{tab:example}
+    \end{table}
+
+Referencing the table: Table \ref{tab:example}.
+
+\end{document}

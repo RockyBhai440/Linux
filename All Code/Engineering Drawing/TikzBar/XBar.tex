@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pfgplotsset{compat = 1.17} %Didn't understand
+\usepackage{filecontents}
+\begin{filecontents*}{data.dat}
+    Category Value
+    A 5
+    B 8
+    C 3
+    D 12
+\end{filecontents*}
+\begin{document}
+    \begin{tikzpicture}
+        \begin{axis}[
+            ytick = data, %Use data point as y ticks
+            yticklabels from table = {data.dat}{Category}, % Use Category column for tick labels
+            sbar,
+            slavel = {Values},
+            title = {Xbar Diagram},
+            ]
+            % Plot the xbar diagram
+            \addplot table [x=Value]
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
